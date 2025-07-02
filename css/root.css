@@ -1,0 +1,57 @@
+@media (prefers-color-scheme: light) {
+    :root {
+        --texto-primario: #000000;
+        --texto-secundario: #808080;
+
+        --bordas: #80808080;
+        --borda-buttons: #80808080;
+        --bg-primario: #ffffff;
+        --bg-secundario: #fcfcfc;
+
+        --borda-numero: #7f7f7f;
+        --bg-numero: #f5f5f5;
+
+        --titulo-exportar: #ffffff;
+        --bg-exportar: #33c1cc;
+        --bordas-exportar: #2aa1aa;
+
+        --texto-inputs-exportar: #063438;
+        --bg-inputs-exportar: #ffffff;
+        --bordas-inputs-exportar: #8df7ff;
+
+        --box-shadow-exportar: #33c1cc33;
+        --inset-shadow-exportar: #36cdd8;
+
+        --gradiente-scroll:
+            to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 95%;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --texto-primario: #ffffff;
+        --texto-secundario: #e5e5e5;
+
+        --bordas: #80808080;
+        --borda-buttons: #6f6f6f;
+        --bg-primario: #202020;
+        --bg-secundario: #262626;
+
+        --borda-numero: #404040;
+        --bg-numero: #0f0f0f;
+
+        --titulo-exportar: #2f2c2c;
+        --bg-exportar: #b3d872;
+        --bordas-exportar: #7f994d;
+
+        --texto-inputs-exportar: #f9ffee;
+        --bg-inputs-exportar: #1a2900;
+        --bordas-inputs-exportar: #9dbf63;
+
+        --box-shadow-exportar: #66cc3332;
+        --inset-shadow-exportar: #b8d88c;
+
+        --gradiente-scroll:
+            to bottom, rgba(32, 32, 32, 0) 0%, rgba(32, 32, 32, 1) 95%;
+    }
+}

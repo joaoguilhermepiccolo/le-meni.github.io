@@ -1,0 +1,335 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>JVIMP | Jojo-Vini Image Manipulator</title>
+
+        <link rel="stylesheet" type="text/css" href="./css/reset.css" />
+        <link rel="stylesheet" type="text/css" href="./css/root.css" />
+        <link rel="stylesheet" type="text/css" href="./css/main.css" />
+        <link rel="stylesheet" type="text/css" href="./css/fonts.css" />
+    </head>
+    <body>
+        <!-- jojo was here -->
+        <!-- vini was here -->
+        <!-- barra lateral de funcoes -->
+        <section class="barra-funcoes">
+            <div class="container-funcao">
+                <p>Imagem 1</p>
+                <div>
+                    <label class="upload-img">
+                        <input
+                            type="file"
+                            id="input-imagem-1"
+                            accept="image/png, image/jpeg, image/bmp"
+                        />
+                        Adicionar imagem primária
+                    </label>
+                    <div class="preview-upload">
+                        <img id="preview-imagem-1" width="48" />
+                    </div>
+                </div>
+
+                <hr />
+
+                <p>Imagem 2</p>
+                <div>
+                    <label class="upload-img">
+                        <input
+                            type="file"
+                            id="input-imagem-2"
+                            accept="image/png, image/jpeg, image/bmp"
+                        />
+                        Adicionar imagem secundária
+                    </label>
+                    <div class="preview-upload">
+                        <img id="preview-imagem-2" width="48" />
+                    </div>
+                </div>
+
+                <p>
+                    Imagens no formato <i>.TIFF</i> não possuem suporte Web
+                    nativo. Se um arquivo neste padrão for necessário,
+                    converta-o para <i>.BMP</i>, <i>.JPEG</i> ou
+                    <i>.PNG</i> antes de realizar o upload.
+                </p>
+            </div>
+
+            <!-- <div class="container-funcao">
+                <h1>Modo de edição</h1>
+                <div>
+                    <button id="modo-conservativo">Conservativa</button>
+                    <button id="modo-destrutivo">Destrutiva</button>
+                </div>
+            </div> -->
+
+            <div class="container-funcao">
+                <h1>Converter para...</h1>
+                <div>
+                    <button id="converterEscalaCinza">Grayscale</button>
+                    <button id="binario">Binário</button>
+                    <button id="negativo">Negativo</button>
+                </div>
+            </div>
+
+            <div class="container-funcao">
+                <div>
+                    <h1>Aritmética</h1>
+
+                    <input
+                        type="number"
+                        id="input-valor-calculo"
+                        value="0"
+                        min="0"
+                        max="255"
+                    />
+                </div>
+
+                <div>
+                    <button id="adicionarBrilho">+</button>
+                    <button id="subtrairBrilho">-</button>
+                    <button id="multiplicar">*</button>
+                    <button id="dividir">/</button>
+                </div>
+
+                <hr />
+
+                <h2>Operações entre imagens</h2>
+                <div>
+                    <button id="adicionarImagens">Adição</button>
+                    <button id="subtrairImagens">Diferença</button>
+                </div>
+
+                <hr />
+
+                <h2>Blending</h2>
+                <div>
+                    <input
+                        type="number"
+                        id="blending-valor"
+                        min="0"
+                        max="1"
+                        step="0.01"
+                        value="0"
+                    />
+                    <button id="blend">Aplicar blend</button>
+                </div>
+            </div>
+
+            <div class="container-funcao">
+                <h1>Lógica</h1>
+                <div>
+                    <button id="and">AND</button>
+                    <button id="or">OR</button>
+                    <button id="not">NOT</button>
+                    <button id="xor">XOR</button>
+                </div>
+            </div>
+
+            <div class="container-funcao">
+                <h1>Limiarização</h1>
+                <div>
+                    <input
+                        type="number"
+                        id="input-limiar"
+                        value="0"
+                        min="0"
+                        max="255"
+                    />
+                    <button id="limiar">Aplicar limiar</button>
+                </div>
+            </div>
+
+            <div class="container-funcao">
+                <h1>Filtros de convolução</h1>
+
+                <hr />
+
+                <h2>Tamanho do filtro</h2>
+                <div>
+                    <input
+                        type="number"
+                        id="input-tamanho-filtragem"
+                        value="3"
+                        min="3"
+                        step="2"
+                    />
+                </div>
+
+                <div>
+                    <button id="filtro-maxima">Máxima</button>
+                    <button id="filtro-minima">Mínima</button>
+                </div>
+                <div>
+                    <button id="filtro-media">Média</button>
+                    <button id="filtro-mediana">Mediana</button>
+                </div>
+
+                <hr />
+
+                <h2>Suavização conservativa</h2>
+                <div>
+                    <input
+                        type="number"
+                        id="input-suavizacao-conservativa"
+                        value="3"
+                        min="3"
+                        max="8"
+                    />
+                    <button id="suavizacao-conservativa">
+                        Aplicar suavização
+                    </button>
+                </div>
+
+                <hr />
+
+                <h2>Ordem</h2>
+                <div>
+                    <input
+                        type="number"
+                        id="input-ordem"
+                        value="0"
+                        min="0"
+                        max="8"
+                    />
+                    <button id="aplicar-ordem">Aplicar ordem</button>
+                </div>
+
+                <hr />
+
+                <h2>Filtragem Gaussiana</h2>
+                <div>
+                    <p style="width: 100%">Tamanho do Kernel</p>
+                    <p style="width: 100%">Influência do Sigma</p>
+                </div>
+                <div>
+                    <input
+                        type="number"
+                        id="input-filtragem-gaussiana"
+                        value="3"
+                        min="3"
+                        step="2"
+                    />
+                    <input type="number" id="input-sigma" value="5" min="1" />
+                </div>
+                <button id="filtragem-gaussiana">
+                    Aplicar filtro Gaussiano
+                </button>
+
+                <hr />
+
+                <h2>Visualização do filtro</h2>
+                <canvas
+                    id="canvas-kernel"
+                    style="
+                        background-color: black;
+                        border-radius: 1rem;
+                        image-rendering: pixelated;
+                        image-rendering: -moz-crisp-edges;
+                        image-rendering: crisp-edges;
+                        border: 0.125rem solid var(--borda-buttons);
+                    "
+                ></canvas>
+                <button id="exportar-kernel">Exportar kernel</button>
+            </div>
+
+            <div class="container-funcao">
+                <h1>Operações morfológicas</h1>
+                <div>
+                    <button id="dilatacao">Dilatação</button>
+                    <button id="erosao">Erosão</button>
+                </div>
+                <div>
+                    <button id="abertura">Abertura</button>
+                    <button id="fechamento">Fechamento</button>
+                </div>
+                <div><button id="contorno">Contorno</button></div>
+            </div>
+
+            <div class="container-funcao">
+                <h1>Detecção de bordas</h1>
+                <div>
+                    <button id="sobel">Sobel</button>
+                    <button id="prewitt">Prewitt</button>
+                    <button id="laplaciano">Laplaciano</button>
+                </div>
+            </div>
+
+            <div class="container-funcao">
+                <h1>Inverter</h1>
+                <div>
+                    <button id="inverterVertical">Flip-ud</button>
+                    <button id="inverterHorizontal">Flip-lr</button>
+                    <button id="mirror">Mirror</button>
+                    <button id="reset">Original</button>
+                </div>
+            </div>
+        </section>
+
+        <div class="gradiente-scroll"></div>
+
+        <!-- visualizacao da imagem -->
+        <div>
+            <canvas id="canvas-output" width="400" height="300"></canvas>
+        </div>
+
+        <section class="barra-histograma-exportar">
+            <div class="container-funcao">
+                <h1>Histograma fonte</h1>
+                <div id="histogramaOriginal"></div>
+                <button id="equlizar-histograma" style="height: unset">
+                    Equalizar histograma
+                </button>
+                <h1>Histograma equalizado</h1>
+                <div id="histogramaEqualizado"></div>
+            </div>
+
+            <div class="container-exportar">
+                <div>
+                    <h1>Exportar</h1>
+                    <!-- <select id="formato" type="text">
+                        <option value="" disabled selected>Formato</option>
+                        <option value="jpeg">.jpeg</option>
+                        <option value="png">.png</option>
+                        <option value="bmp">.bmp</option>
+                        <option value="tif">.tif</option>
+                    </select> -->
+                </div>
+                <button id="exportarImg">Exportar imagem</button>
+            </div>
+        </section>
+
+        <script src="./js/adicaoSubtracao.js"></script>
+        <script src="./js/aritmetica.js"></script>
+        <script src="./js/blending.js"></script>
+        <script src="./js/conversaoBinario.js"></script>
+        <script src="./js/escalaCinza.js"></script>
+        <script src="./js/exportar.js"></script>
+        <script src="./js/histograma.js"></script>
+        <script src="./js/inverter.js"></script>
+        <script src="./js/limiar.js"></script>
+        <script src="./js/logica.js"></script>
+        <script src="./js/main.js"></script>
+        <script src="./js/multiplicacaoDivisao.js"></script>
+
+        <script src="./js/deteccaoBordas/sobel.js"></script>
+        <script src="./js/deteccaoBordas/prewitt.js"></script>
+        <script src="./js/deteccaoBordas/laplaciano.js"></script>
+
+        <script src="./js/convolucao/filtragemGaussiana.js"></script>
+        <script src="./js/convolucao/maximaMinima.js"></script>
+        <script src="./js/convolucao/media.js"></script>
+        <script src="./js/convolucao/mediana.js"></script>
+        <script src="./js/convolucao/ordem.js"></script>
+        <script src="./js/convolucao/suavizacaoConservativa.js"></script>
+        <script src="./js/convolucao/visualizarKernel.js"></script>
+
+        <script src="./js/operacoesMorfologicas/abertura.js"></script>
+        <script src="./js/operacoesMorfologicas/contorno.js"></script>
+        <script src="./js/operacoesMorfologicas/dilatacao.js"></script>
+        <script src="./js/operacoesMorfologicas/erosao.js"></script>
+        <script src="./js/operacoesMorfologicas/fechamento.js"></script>
+    </body>
+</html>
